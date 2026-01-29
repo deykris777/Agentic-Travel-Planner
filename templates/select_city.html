@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Select City</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h2>Select City</h2>
+
+    <form method="POST" action="{{ url_for('analyze') }}">
+        <input type="hidden" name="country" value="{{ country }}">
+        <input type="hidden" name="days" value="{{ days }}">
+        <input type="hidden" name="budget" value="{{ budget }}">
+        <input type="hidden" name="style" value="{{ style }}">
+
+        <label>City</label>
+        <select name="city">
+            {% for city in cities %}
+            <option value="{{ city }}">{{ city }}</option>
+            {% endfor %}
+        </select>
+
+        <button type="submit">Analyze Trip →</button>
+    </form>
+</div>
+
+</body>
+</html>

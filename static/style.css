@@ -1,0 +1,185 @@
+/* ---------- GLOBAL RESET ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ---------- BACKGROUND ---------- */
+body {
+    min-height: 100vh;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #ffffff;
+
+    background:
+        linear-gradient(rgba(30, 27, 75, 0.85), rgba(60, 40, 120, 0.85)),
+        url("/static/images/image1.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ---------- CARD ---------- */
+.container {
+    width: 420px;
+    padding: 28px;
+
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(16px);
+    border-radius: 20px;
+
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.35);
+    animation: fadeIn 0.8s ease;
+}
+
+/* ---------- HEADINGS ---------- */
+h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 6px;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 13px;
+    opacity: 0.85;
+    margin-bottom: 22px;
+}
+
+h3 {
+    margin: 22px 0 10px;
+    font-size: 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    padding-bottom: 6px;
+}
+
+/* ---------- INFO GRID ---------- */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+.info-grid div {
+    background: rgba(255,255,255,0.15);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.info-grid strong {
+    display: block;
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+.info-grid span {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* ---------- COST GRID ---------- */
+.cost-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.cost-grid div {
+    background: rgba(255,255,255,0.15);
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+/* ---------- TOTAL COST ---------- */
+.total-cost {
+    margin-top: 18px;
+    padding: 14px;
+    text-align: center;
+
+    background: rgba(0,0,0,0.25);
+    border-radius: 12px;
+
+    font-size: 16px;
+    font-weight: 700;
+}
+
+/* ---------- FEASIBILITY METER ---------- */
+.meter {
+    width: 100%;
+    height: 16px;
+    background: rgba(255,255,255,0.25);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.meter-fill {
+    height: 100%;
+    transition: width 0.8s ease;
+}
+
+/* Color states */
+.High {
+    background: linear-gradient(90deg, #00ffcc, #00c896);
+}
+
+.Medium {
+    background: linear-gradient(90deg, #ffcc00, #ff9900);
+}
+
+.Low {
+    background: linear-gradient(90deg, #ff5f5f, #d60000);
+}
+
+/* ---------- VERDICT ---------- */
+.verdict {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.verdict.High {
+    color: #00ffcc;
+}
+
+.verdict.Medium {
+    color: #ffcc00;
+}
+
+.verdict.Low {
+    color: #ff6b6b;
+}
+
+/* ---------- REASONING ---------- */
+.reasoning {
+    margin-top: 14px;
+    padding-left: 18px;
+    font-size: 13px;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.reasoning li {
+    margin-bottom: 6px;
+}
+
+/* ---------- ANIMATION ---------- */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

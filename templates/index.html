@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Trip Plan Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h2>Trip Plan Analyzer</h2>
+    <p>Agentic AI-based travel feasibility analysis</p>
+
+    <form method="POST">
+        <label>Country</label>
+        <select name="country" required>
+            {% for c in countries %}
+            <option value="{{ c }}">{{ c }}</option>
+            {% endfor %}
+        </select>
+
+        <label>Days</label>
+        <select name="days">
+            {% for d in range(3,16) %}
+            <option value="{{ d }}">{{ d }} days</option>
+            {% endfor %}
+        </select>
+
+        <label>Budget (INR)</label>
+        <select name="budget">
+            {% for b in range(10000,300001,10000) %}
+            <option value="{{ b }}">₹{{ b }}</option>
+            {% endfor %}
+        </select>
+
+        <label>Travel Style</label>
+        <select name="style">
+            <option>Budget</option>
+            <option>Balanced</option>
+            <option>Luxury</option>
+        </select>
+
+        <button type="submit">Continue →</button>
+    </form>
+</div>
+
+</body>
+</html>

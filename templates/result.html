@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
     <title>Trip Analysis Result</title>
-   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
@@ -12,7 +11,6 @@
     <h2>Trip Analysis Result</h2>
     <p class="subtitle">Personalized travel feasibility summary</p>
 
-    <!-- BASIC INFO -->
     <div class="info-grid">
         <div><strong>Country</strong><span>{{ country }}</span></div>
         <div><strong>City</strong><span>{{ city }}</span></div>
@@ -21,7 +19,6 @@
         <div><strong>Style</strong><span>{{ style }}</span></div>
     </div>
 
-    <!-- COST BREAKDOWN -->
     <h3>Cost Breakdown</h3>
     <div class="cost-grid">
         <div>Daily Cost <span>₹{{ result.daily_cost }}</span></div>
@@ -30,31 +27,33 @@
         <div>Safety Buffer <span>₹{{ result.buffer }}</span></div>
     </div>
 
-    <!-- TOTAL -->
     <div class="total-cost">
         Total Estimated Cost: ₹{{ result.total_cost }}
     </div>
 
-    <!-- FEASIBILITY -->
     <h3>Feasibility</h3>
     <div class="meter">
-        <div class="meter-fill {{ result.level }}"
-             style="width: {{ result.confidence }}%;">
-        </div>
+        <div class="meter-fill {{ result.level }}" data-confidence="{{ result.confidence }}"></div>
     </div>
 
     <div class="verdict {{ result.level }}">
         {{ result.confidence }}% – {{ result.verdict }}
     </div>
 
-    <!-- REASONING -->
     <ul class="reasoning">
         {% for reason in result.reasons %}
-            <li>{{ reason }}</li>
+        <li>{{ reason }}</li>
         {% endfor %}
     </ul>
 
 </div>
 
+<script>
+document.querySelectorAll('.meter-fill').forEach(bar => {
+    bar.style.width = bar.dataset.confidence + '%';
+});
+</script>
+
 </body>
 </html>
+
